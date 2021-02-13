@@ -1,4 +1,5 @@
 import os
+import sys
 import tempfile
 from shutil import rmtree
 
@@ -72,4 +73,8 @@ def default():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=34341)
+    if len(sys.argv) > 1:
+        port = int(sys.argv[1])
+    else:
+        port = 34341
+    app.run(debug=True, host='0.0.0.0', port=port)

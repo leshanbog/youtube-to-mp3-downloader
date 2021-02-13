@@ -8,7 +8,4 @@ COPY requirements.txt main.py /app/
 
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 34341
-
-ENTRYPOINT ["python3"]
-CMD ["main.py"]
+CMD python3 main.py $PORT
