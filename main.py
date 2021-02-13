@@ -50,7 +50,7 @@ def get_file_name():
 @app.route('/download/<path:url>')
 def download(url):
     app.logger.info('Get download query\n\n')
-    
+
     url = get_video_url(url, request.args)
     app.logger.info(f'Get query URL {url}')
 
@@ -81,4 +81,4 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
     else:
         port = 34341
-    app.run(debug=False, host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
