@@ -49,6 +49,8 @@ def get_file_name():
 
 @app.route('/download/<path:url>')
 def download(url):
+    app.logger.info('Get download query\n\n')
+    
     url = get_video_url(url, request.args)
     app.logger.info(f'Get query URL {url}')
 
