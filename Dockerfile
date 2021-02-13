@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk update && apk add --no-cache python3 py-pip && python3 -m pip install --upgrade pip
+RUN apk update && apk add --no-cache python3 py-pip ffmpeg && python3 -m pip install --upgrade pip
 
 WORKDIR /app
 
