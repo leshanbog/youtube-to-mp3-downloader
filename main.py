@@ -50,10 +50,12 @@ def get_file_name():
 @app.route('/download/<path:url>')
 def download(url):
     url = get_video_url(url, request.args)
+    app.logger.info(f'Get query URL {url}')
 
     current_opts = ydl_opts.copy()
 
     tmp_dir_name = tempfile.mkdtemp()
+    app.logger.info(f'Tempdir {tmp_dir_name} is created')
     current_opts['outtmpl'] = f'{tmp_dir_name}/%(title)s.mp3'
 
     with youtube_dl.YoutubeDL(current_opts) as ydl:
